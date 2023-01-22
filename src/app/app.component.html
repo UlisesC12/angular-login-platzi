@@ -1,4 +1,80 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div class="container">
+  <div class="form-content">
+    <form (ngSubmit)="onRegister()" #myForm="ngForm" class="form-info">
+      <h1>Registro de Usuario</h1>
+      <div class="input-group">
+        <label for="name">Nombre: </label>
+        <input
+          type="text"
+          name="name"
+          required
+          #nameInput="ngModel"
+          id="name"
+          [(ngModel)]="register.name"
+        />
+        <p
+          class="required-field"
+          [ngClass]="{
+            valid: nameInput.valid,
+            invalid: nameInput.invalid
+          }"
+          *ngIf="nameInput.invalid"
+        >
+          *El campo es requerido
+        </p>
+        <br *ngIf="nameInput.valid" />
+        <br *ngIf="nameInput.valid" />
+        <br *ngIf="nameInput.valid" />
+      </div>
+      <div class="input-group">
+        <label for="email">Email: </label>
+        <input
+          type="email"
+          name="email"
+          required
+          #emailInput="ngModel"
+          id="email"
+          [(ngModel)]="register.email"
+        />
+        <p
+          class="required-field"
+          [ngClass]="{
+            valid: emailInput.valid,
+            invalid: emailInput.invalid
+          }"
+          *ngIf="emailInput.invalid"
+        >
+          *El campo es requerido
+        </p>
+        <br *ngIf="emailInput.valid" />
+        <br *ngIf="emailInput.valid" />
+        <br *ngIf="emailInput.valid" />
+      </div>
+      <div class="input-group">
+        <label for="password">Password: </label>
+        <input
+          type="password"
+          name="password"
+          required
+          #passwordInput="ngModel"
+          id="password"
+          [(ngModel)]="register.password"
+        />
+        <p
+          class="required-field"
+          [ngClass]="{
+            valid: passwordInput.valid,
+            invalid: passwordInput.invalid
+          }"
+          *ngIf="passwordInput.invalid"
+        >
+          *El campo es requerido
+        </p>
+        <br *ngIf="passwordInput.valid" />
+        <br *ngIf="passwordInput.valid" />
+        <br *ngIf="passwordInput.valid" />
+      </div>
+      <button [disabled]="myForm.invalid" type="submit">Register</button>
+    </form>
+  </div>
+</div>

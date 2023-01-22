@@ -7,4 +7,12 @@ import { Component, VERSION } from '@angular/core';
 })
 export class AppComponent  {
   name = 'Angular ' + VERSION.major;
+  register = {
+    name: '',
+    email: '',
+    password: '',
+  }
+  onRegister() {
+    console.log(this.register)
+  }
 }
